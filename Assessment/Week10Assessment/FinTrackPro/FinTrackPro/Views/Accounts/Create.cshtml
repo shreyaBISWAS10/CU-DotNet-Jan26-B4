@@ -1,0 +1,29 @@
+﻿@model FinTrackPro.Models.Account
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+        <h3 class="mb-3">➕ Create Account</h3>
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="AccountName"></label>
+                <input asp-for="AccountName" class="form-control" placeholder="Enter account name" />
+                <span asp-validation-for="AccountName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Balance"></label>
+                <input asp-for="Balance" class="form-control" placeholder="Enter balance" />
+            </div>
+
+            <button class="btn btn-success">Save</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+
+        </form>
+    </div>
+
+</div>

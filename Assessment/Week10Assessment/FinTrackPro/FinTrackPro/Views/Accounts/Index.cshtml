@@ -1,0 +1,44 @@
+﻿@model List<FinTrackPro.Models.Account>
+
+<div class="container mt-4">
+
+    <h2 class="mb-3">🏦 Accounts</h2>
+
+    <a asp-action="Create" class="btn btn-success mb-3">+ Add Account</a>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success shadow">
+            @TempData["Success"]
+        </div>
+    }
+
+    <div class="card shadow p-3">
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Account Name</th>
+                    <th>Balance</th>
+                    <th>Actions</th> 
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="fw-bold">@item.AccountName</td>
+                        <td class="text-success">₹@item.Balance</td>
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
