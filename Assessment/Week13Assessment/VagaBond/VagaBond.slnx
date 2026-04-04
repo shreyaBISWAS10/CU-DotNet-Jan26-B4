@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="VagaBond.Backend/VagaBond.Backend.csproj" />
+  <Project Path="VagaBond.Frontend/VagaBond.Frontend.csproj" />
+</Solution>

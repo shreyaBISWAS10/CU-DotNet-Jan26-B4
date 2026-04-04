@@ -1,0 +1,47 @@
+﻿@model IEnumerable<VagaBond.Frontend.Models.Destination>
+
+@{
+    ViewData["Title"] = "Travel Destinations";
+  
+}
+
+<h1 class="text-center mb-4">🌍 Explore Destinations</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card card-hover shadow-lg rounded-4">
+                    <div class="card-body">
+                        <h4 class="card-title">@item.CityName, @item.Country</h4>
+                        <p class="card-text">"@item.Description"</p>
+                        <p><b>Rating</b></p>
+                        <div style="display: inline-block; border: 2px solid #ffc107; padding: 6px 12px; border-radius: 10px; font-weight: bold;">
+    
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= item.Rating)
+                                {
+                                    <span style="color: gold;">★</span>
+                                }
+                                else
+                                {
+                                    <span style="color: lightgray;">★</span>
+                                }
+                            }
+
+                            <span style="margin-left: 8px;">@item.Rating / 5</span>
+
+                        </div>
+                        <br />
+                        <br />
+                        <p class="text-muted">
+                            Last Visited: @item.LastVisited.ToShortDateString()
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
