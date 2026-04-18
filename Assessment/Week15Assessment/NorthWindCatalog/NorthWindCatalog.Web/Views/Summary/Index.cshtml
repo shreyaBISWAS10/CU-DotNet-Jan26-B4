@@ -1,0 +1,27 @@
+﻿@model IEnumerable<NorthWindCatalog.Web.DTOS.CategorySummaryDto>
+
+<h2 class="mb-4">Category Summary</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Category</th>
+            <th>Product Count</th>
+            <th>Avg Price</th>
+            <th>Most Expensive</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>@item.ProductCount</td>
+                <td>₹@item.AvgPrice</td>
+                <td>@item.MostExpensiveProduct</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Categories/Index" class="btn btn-secondary mt-3">Back</a>

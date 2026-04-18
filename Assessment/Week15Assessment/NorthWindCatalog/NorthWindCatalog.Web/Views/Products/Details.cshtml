@@ -1,0 +1,25 @@
+﻿@{
+    var name = Context.Request.Query["name"];
+    var price = decimal.Parse(Context.Request.Query["price"]);
+    var stock = int.Parse(Context.Request.Query["stock"]);
+
+    var inventoryValue = price * stock;
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-4 mx-auto text-center" style="max-width:500px;">
+
+        <h3 class="fw-bold mb-3">@name</h3>
+
+        <p><strong>Price:</strong> ₹@price</p>
+        <p><strong>Stock:</strong> @stock</p>
+        <p><strong>Inventory Value:</strong> ₹@inventoryValue</p>
+
+        <a href="/Categories/Index" class="btn btn-outline-dark mt-3 rounded-pill">
+            Back to Categories
+        </a>
+
+    </div>
+
+</div>
